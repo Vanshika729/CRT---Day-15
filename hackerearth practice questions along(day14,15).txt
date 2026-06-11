@@ -1,0 +1,169 @@
+Q-Monk and Rotation
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.*;
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+        Scanner sc=new Scanner(System.in);
+        int t=sc.nextInt();
+        while(t-->0){
+            int n=sc.nextInt();
+            int k=sc.nextInt();
+            int arr[]=new int[n];
+            for(int i=0;i<n;i++){
+                arr[i]=sc.nextInt();
+            }
+            int rotated[]=new int[n];
+            for(int i=0;i<n;i++){
+                rotated[(k+i)%n]=arr[i];
+            }
+            for(int i=0;i<n;i++){
+                System.out.print(rotated[i]+" ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+Q-Roy and Profile Picture
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.*;
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+        Scanner sc=new Scanner(System.in);
+        int l=sc.nextInt();
+        int n=sc.nextInt();
+        for(int i=1;i<=n;i++){
+            int w=sc.nextInt();
+            int h=sc.nextInt();
+        
+            if(w<l || h<l){
+                System.out.println( "UPLOAD ANOTHER");
+            }
+            else{
+                if((w==l && l==h) || w==h){
+                    System.out.println( "ACCEPTED");
+                    }
+                else
+                    System.out.println( "CROP IT");
+            }
+        }
+    }
+}
+
+
+
+Q-Toggle String
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.*;
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+        Scanner sc=new Scanner(System.in);
+        String s=sc.next();
+        char arr[]=s.toCharArray();        
+        for(int i=0;i<s.length();i++){
+            if(Character.isUpperCase(arr[i])){
+                arr[i]=Character.toLowerCase(arr[i]);
+            }
+            else {
+                arr[i]=Character.toUpperCase(arr[i]);
+            }
+        }
+        s=new String(arr);
+        System.out.println(s);
+    }
+}
+
+
+
+Q-Find Product
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.util.*;
+class TestClass {
+    public static void main(String args[] ) throws Exception {
+       Scanner sc=new Scanner(System.in);
+       int n=sc.nextInt();
+       long[] arr=new long[n];
+       long mod = 1000000007;
+       long mul=1;
+       for(int i=0;i<n;i++){
+        arr[i]=sc.nextInt();
+       }
+       for(int i=0;i<n;i++){
+            mul=(mul*arr[i])%mod;
+       }
+       System.out.println(mul);
+}
+}
+
+
+
+Q-Two Sum
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        int sum=0;
+        for(int i=0;i<nums.length;i++){
+            for(int j=i+1;j<nums.length;j++){
+                sum=nums[i]+nums[j];
+                if(target==sum){
+                    return new int[]{i,j};
+                }
+            }
+        }return new int[]{};
+    }
+}
+
+
+
+Q-Palindrome Number
+class Solution {
+    public boolean isPalindrome(int x) {
+        int temp=0;
+        int temp2=x;
+        boolean result=true;
+        while(x>0){
+            temp=(temp)*10+(x%10);
+            x=x/10;
+        }
+        if(temp==temp2){
+            return result;
+        }
+        return false;
+    }
+}
+
+
+
+Q-Running Sum of 1d Array
+class Solution {
+    public int[] runningSum(int[] nums) {
+        int sum=0;
+        for(int i=0;i<nums.length;i++){
+            sum=sum+nums[i];
+            nums[i]=sum;
+        }
+        return nums;
+    }
+}
+
+
+
+Q-Richest Customer Wealth
+class Solution {
+    public int maximumWealth(int[][] accounts) {
+        int max=0;
+        for(int i=0;i<accounts.length;i++){
+            int wealth=0;
+            for(int j=0;j<accounts[i].length;j++){
+                wealth=wealth+accounts[i][j];
+            }
+            if(wealth>max){
+                max=wealth;
+            }
+        }return max;
+    }
+}
